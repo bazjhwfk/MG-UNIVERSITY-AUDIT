@@ -8,12 +8,13 @@ import { AuditDetailsTab } from './ui/AuditDetailsTab';
 import { BillForm } from './ui/BillForm';
 import { BillListTab } from './ui/BillListTab';
 import { Dashboard } from './ui/Dashboard';
+import { GitHubTab, syncLabel } from './ui/GitHubTab';
 import { Icon, type IconName } from './ui/icons';
 import { MasterDataTab } from './ui/MasterDataTab';
 import { ReportViewer } from './ui/ReportViewer';
 import { downloadBackup, restoreBackup } from './ui/transfer';
 
-type PageId = 'home' | 'bill' | 'list' | 'master' | 'audit';
+type PageId = 'home' | 'bill' | 'list' | 'master' | 'audit' | 'github';
 
 const PAGES: { id: PageId; label: string; icon: IconName }[] = [
   { id: 'home', label: 'Dashboard', icon: 'grid' },
@@ -22,6 +23,7 @@ const PAGES: { id: PageId; label: string; icon: IconName }[] = [
   { id: 'master', label: 'Master Data', icon: 'people' },
   { id: 'audit', label: 'Audit Details', icon: 'clipboard' },
 ];
+const GITHUB_PAGE = { id: 'github' as const, label: 'GitHub Database', icon: 'database' as const };
 
 export function App() {
   const data = useData();
@@ -123,8 +125,9 @@ export function App() {
     if (result) setMessage(result);
   };
 
-  const current = PAGES.find((p) => p.id === page)!;
+  const current = page === 'github' ? GITHUB_PAGE : PAGES.find((p) => p.id === page)!;
   const online = data.ready && !data.error;
+  const syncText = syncLabel(data.sync, data.hasToken);
 
   return (
     <div className="app">
@@ -174,6 +177,7 @@ export function App() {
             <div className="side-actions">
               <button onClick={backup}><Icon name="download" size={16} />Backup JSON</button>
               <button onClick={() => void restore()}><Icon name="upload" size={16} />Restore JSON</button>
+              <button className={page === 'github' ? 'on' : ''} onClick={() => setPage('github')}><Icon name="database" size={16} />GitHub Database</button>
               <button onClick={() => { session.clear(); setPage('bill'); }}><Icon name="filePlus" size={16} />New bill</button>
             </div>
           )}
@@ -187,10 +191,9 @@ export function App() {
               <div className="profile-role">MG University</div>
             </div>
           </div>
-          <span className={online ? 'bell online' : 'bell'} title={online ? 'Local database online' : 'Database unavailable'} role="img"
-            aria-label={online ? 'Local database online' : 'Database unavailable'}>
+          <button className={`bell ${data.sync.kind}`} title={syncText} aria-label={`${syncText}. Open GitHub Database`} onClick={() => setPage('github')}>
             <Icon name="bell" size={18} />
-          </span>
+          </button>
         </div>
       </aside>
 
@@ -217,6 +220,7 @@ export function App() {
               {page === 'list' && <BillListTab key={listQuery.key} session={session} initialQuery={listQuery.text} />}
               {page === 'master' && <MasterDataTab session={session} />}
               {page === 'audit' && <AuditDetailsTab session={session} />}
+              {page === 'github' && <GitHubTab />}
             </section>
           ))}
       </div>

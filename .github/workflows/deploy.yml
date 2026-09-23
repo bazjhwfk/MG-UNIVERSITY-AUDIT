@@ -3,6 +3,8 @@ name: Test and deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # Saves from the app commit data/db.json; they must not redeploy the site each time.
+    paths-ignore: ["data/**"]
   pull_request:
   workflow_dispatch:
 

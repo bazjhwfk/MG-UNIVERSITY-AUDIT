@@ -15,6 +15,34 @@ It is a static web app, so GitHub Pages can host it for free with no server.
 
 In NativeAudit, click **Backup JSON**. Then in this app, go to **Backup & data → Restore** and choose that file. Bills, contractors, budgets, extra items, excess quantities and audit notes are all imported. Amounts are recalculated from the imported inputs.
 
+## Shared database on GitHub
+
+`data/db.json` in this repository is a simple shared database.
+
+- **Loading:** when the app opens, it loads that file and merges it into the browser's copy. No sign-in is needed to read it.
+- **Saving:** to send changes back, open **GitHub Database** in the sidebar and paste a fine-grained access token. Scope it to this repository only, with **Contents: Read and write**. The token stays in that browser only.
+- **When changes are sent:** about 2 seconds after each save, as one commit. Record-by-record merging keeps edits from different computers, and a deleted bill stays deleted.
+- **Redeploys:** data commits do not trigger a site redeploy (the workflow ignores `data/**`).
+
+> **Warning:** this repository is public, so **anyone can read everything in data/db.json**, including contractor PAN and GST numbers, and every earlier version stays in the git history.
+
+### Test bills
+
+The database starts with eight test bills (TEST/01 to TEST/08), defined in `src/domain/testBills.ts`. Their expected amounts are checked in `src/domain/testBills.test.ts`. Between them they trigger every deduction rule:
+
+| Bill | Conditions | Net payable |
+|---|---|---|
+| TEST/01 | Maximum conditions for a Final bill: company (2% IT), GST above ₹2.5 lakh, bill amount derived from base value, 23 days late (3 weeks + part week), agreement 19 days after work order, electricity charges, excess and extra items, audit notes | ₹8,41,500 |
+| TEST/02 | Part bill: 2.5% retention, part-week fine, no agreement fine | ₹2,24,000 |
+| TEST/03 | 104 days late: fine above 10% of PAC becomes ₹1,00,000 | ₹2,95,500 |
+| TEST/04 | Agreement fine of ₹600 raised to the ₹1,000 minimum | ₹57,000 |
+| TEST/05 | Fine waiver with both delays present | ₹5,65,000 |
+| TEST/06 | Completed 9 days early; base value derived from bill amount | ₹1,16,000 |
+| TEST/07 | Base value exactly ₹2,50,000, so no GST | ₹2,90,000 |
+| TEST/08 | Exactly 14 days agreement delay (no fine), exactly 7 days late | ₹91,800 |
+
+To reset the database to only these bills, run `npm run seed:test-bills`, then commit `data/db.json`.
+
 ## Features
 
 - Bill editor in seven sections, with a live computation panel: GST, income tax, WWC (cess and collection charge), retention, electricity, completion-delay and agreement-delay fines, total deductions, net payable, and the amount in words.

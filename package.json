@@ -8,7 +8,8 @@
     "build": "tsc -p . && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "typecheck": "tsc -p ."
+    "typecheck": "tsc -p .",
+    "seed:test-bills": "vitest run -c scripts/vitest.seed.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/sora": "^5.3.0",

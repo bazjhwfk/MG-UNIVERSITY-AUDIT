@@ -95,14 +95,21 @@ export function DataProvider({ children }: { children: ReactNode }) {
       setError('Bill Audit is open in another browser tab with an older version, which is holding up a database update. Close the other Bill Audit tabs, then reload this page.');
       setReady(true);
     });
+    // Never sit on the loading screen forever if the browser's database doesn't answer.
+    const stall = window.setTimeout(() => {
+      setError('The browser’s database is not responding. Close every other Bill Audit tab (or restart the browser), then reload this page.');
+      setReady(true);
+    }, 10000);
     // Show local data straight away; the GitHub sync runs in the background.
     reload()
       .then(() => {
+        window.clearTimeout(stall);
         setError(null);
         setReady(true);
         void syncNow();
       })
       .catch((e: unknown) => {
+        window.clearTimeout(stall);
         setError(e instanceof Error ? e.message : String(e));
         setReady(true);
       });

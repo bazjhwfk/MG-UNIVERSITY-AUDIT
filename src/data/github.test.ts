@@ -12,9 +12,10 @@ function fakeGitHub(initial: DbFile | null, { conflictOnce = false } = {}) {
   let version = 1;
   let conflicts = conflictOnce ? 1 : 0;
   const puts: string[] = [];
-  const fetchImpl = (async (_url: string, init?: RequestInit) => {
+  const fetchImpl = (async (url: string, init?: RequestInit) => {
     if (!init?.method || init.method === 'GET') {
       if (text === null) return new Response('{}', { status: 404 });
+      if (url.startsWith('https://raw.githubusercontent.com/')) return new Response(text);
       return Response.json({ sha: `v${version}`, encoding: 'base64', content: encodeBase64(text) });
     }
     const body = JSON.parse(String(init.body)) as { sha?: string; content: string };

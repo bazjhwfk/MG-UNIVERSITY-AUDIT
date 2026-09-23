@@ -47,7 +47,18 @@ async function failure(res: Response, writing: boolean): Promise<Error> {
 
 export interface Remote { sha: string | null; file: DbFile | null }
 
+/** Plain file URL; not subject to the API's 60-requests-per-hour limit for anonymous readers. */
+export const RAW_URL = `https://raw.githubusercontent.com/${GITHUB_DB.owner}/${GITHUB_DB.repo}/${GITHUB_DB.branch}/${GITHUB_DB.path}`;
+
 export async function readRemote(token: string | null, fetchImpl: Fetch = fetch): Promise<Remote> {
+  if (!token) {
+    // Read-only computers never write, so they don't need the file's sha. The raw
+    // server may serve a copy up to about 5 minutes old; merging makes that harmless.
+    const res = await fetchImpl(RAW_URL, { cache: 'no-store' });
+    if (res.status === 404) return { sha: null, file: null };
+    if (!res.ok) throw await failure(res, false);
+    return { sha: null, file: parseDbFile(await res.text()) };
+  }
   const url = `${API}?ref=${GITHUB_DB.branch}`;
   const res = await fetchImpl(url, { headers: headers(token), cache: 'no-store' });
   if (res.status === 404) return { sha: null, file: null };

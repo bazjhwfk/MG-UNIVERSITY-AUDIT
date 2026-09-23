@@ -18,6 +18,12 @@ export interface Snapshot {
 
 const STORES = ['bills', 'contractors', 'budgets', 'tombstones'] as const;
 let connection: Promise<IDBPDatabase<AuditDb>> | null = null;
+let onBlocked: () => void = () => undefined;
+
+/** Called when an older version of the app in another tab is holding up a database upgrade. */
+export function setBlockedHandler(handler: () => void): void {
+  onBlocked = handler;
+}
 
 function db(): Promise<IDBPDatabase<AuditDb>> {
   connection ??= openDB<AuditDb>('bill-audit', 2, {
@@ -28,6 +34,14 @@ function db(): Promise<IDBPDatabase<AuditDb>> {
         database.createObjectStore('budgets', { keyPath: 'id' });
       }
       if (oldVersion < 2) database.createObjectStore('tombstones', { keyPath: 'id' });
+    },
+    blocked() {
+      onBlocked();
+    },
+    // A newer version opened in another tab: let go so its upgrade isn't stuck behind this tab.
+    blocking() {
+      void connection?.then((open) => open.close());
+      connection = null;
     },
   });
   return connection;

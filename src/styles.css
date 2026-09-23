@@ -243,6 +243,8 @@ button { font: inherit; color: inherit; }
 /* ---------- Form pages (desktop layout inside cards) ---------- */
 
 .page-card { padding: 22px 24px; }
+.status-card h1 { margin: 0 0 10px; font-size: 22px; font-weight: 400; }
+.status-card p { margin: 0 0 14px; color: var(--ink-2); max-width: 70ch; }
 .page-title { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
 .page-title h1 { margin: 0; font-size: 26px; font-weight: 400; letter-spacing: -0.02em; }
 

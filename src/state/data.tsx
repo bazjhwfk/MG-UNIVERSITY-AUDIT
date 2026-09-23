@@ -91,10 +91,21 @@ export function DataProvider({ children }: { children: ReactNode }) {
   }, [syncNow]);
 
   useEffect(() => {
+    store.setBlockedHandler(() => {
+      setError('Bill Audit is open in another browser tab with an older version, which is holding up a database update. Close the other Bill Audit tabs, then reload this page.');
+      setReady(true);
+    });
+    // Show local data straight away; the GitHub sync runs in the background.
     reload()
-      .then(() => syncNow())
-      .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)))
-      .finally(() => setReady(true));
+      .then(() => {
+        setError(null);
+        setReady(true);
+        void syncNow();
+      })
+      .catch((e: unknown) => {
+        setError(e instanceof Error ? e.message : String(e));
+        setReady(true);
+      });
     // Ask the browser not to evict our data under storage pressure.
     navigator.storage?.persist?.().catch(() => undefined);
   }, [reload, syncNow]);

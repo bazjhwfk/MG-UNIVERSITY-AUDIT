@@ -208,6 +208,13 @@ export function App() {
 
         <div className="message" role="status" aria-live="polite"><span className="dot" />{message}</div>
 
+        {!online && (
+          <section className="card page-card status-card" role="alert">
+            <h1>{data.ready ? 'The local database could not be opened' : 'Opening the local database…'}</h1>
+            {data.error && <p>{data.error}</p>}
+            {data.ready && <button className="btn btn-dark" onClick={() => window.location.reload()}>Reload</button>}
+          </section>
+        )}
         {online && (page === 'home'
           ? <Dashboard session={session} showBills={showBills} />
           : (

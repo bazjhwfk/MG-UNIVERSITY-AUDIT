@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NativeAudit Report</title>
+  <link rel="stylesheet" href="print-preview.css">
+  <script>
+    window.addEventListener("keydown", (event) => {
+      const isPrintShortcut = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "p";
+      if (!isPrintShortcut) return;
+
+      event.preventDefault();
+      window.print();
+    }, true);
+  </script>
+</head>
+<body>
+  <main id="print-preview-container">
+    <section class="page" data-template="aes-register">
+      <h1 class="doc-title">AUDIT ENFACEMENT SHEET REGISTER 2026-2027</h1>
+      <div class="register-head">
+        <div class="left"><span>AES REGISTER NO:</span><span data-field="aesRegisterNo"></span></div>
+        <div class="right"><span>Date:-</span><span data-field="aesDate"></span></div>
+      </div>
+
+      <table class="register-table">
+        <tbody>
+          <tr><td>Name of Contractor</td><td data-field="nameOfContractor"></td></tr>
+          <tr><td>Name of Work</td><td data-field="nameOfWork"></td></tr>
+          <tr><td>Agreement Number</td><td data-field="agreementNumber"></td></tr>
+          <tr><td>Actual Date of Completion</td><td data-field="actualDateOfCompletion"></td></tr>
+          <tr><td>Part/Final Bill</td><td data-field="partFinal"></td></tr>
+          <tr><td>Bill Register No</td><td data-field="billRegisterNo"></td></tr>
+          <tr><td>Head of Account</td><td data-field="headOfAccount"></td></tr>
+          <tr class="tall"><td></td><td></td></tr>
+          <tr><td>M Book No.</td><td data-field="mBookNo"></td></tr>
+          <tr><td>Base Value</td><td data-field="baseValue"></td></tr>
+          <tr><td>Bill Amount</td><td data-field="billAmount"></td></tr>
+          <tr><td><span data-field="itLabel">IT (1% of Base Value)</span></td><td data-field="it"></td></tr>
+          <tr><td>WWC (1% of Base Value)</td><td data-field="wwc"></td></tr>
+          <tr><td>GST (2% of Base Value)</td><td data-field="gst"></td></tr>
+          <tr><td>Retention (2.5% of Base Value)</td><td data-field="retention"></td></tr>
+          <tr><td>Electricity Service Charge</td><td data-field="electricityCharges"></td></tr>
+          <tr><td>Fine: Due to the delay in Execution of Agreement</td><td data-field="fineExecution"></td></tr>
+          <tr><td>Fine : Due to the Delay in Completion of Work</td><td data-field="fineCompletion"></td></tr>
+          <tr><td>Fine Others</td><td data-field="fineOthers"></td></tr>
+          <tr><td>Cheque Amount to the Contractor</td><td data-field="chequeAmount"></td></tr>
+          <tr><td>Date of Final Payment</td><td data-field="dateOfFinalPayment"></td></tr>
+          <tr><td>Date on which Security was released</td><td data-field="dateSecurityReleased"></td></tr>
+          <tr><td>Appropriation for the current year</td><td data-field="allocation"></td></tr>
+          <tr><td>Expenditure including this bill</td><td data-field="expenditure"></td></tr>
+          <tr><td>Balance Amount</td><td data-field="balance"></td></tr>
+        </tbody>
+      </table>
+
+      <div class="register-foot">
+        <div>Assistant</div>
+        <div>Divisional Accounts Officer</div>
+      </div>
+    </section>
+
+    <section class="page" data-template="payment-register">
+      <h1 class="doc-title">PAYMENT REGISTER 2026-2027</h1>
+      <div class="register-head">
+        <div class="left"><span>PAYMENT REGISTER NO:</span><span data-field="paymentRegisterNo"></span></div>
+        <div class="right"><span>Date:-</span><span data-field="paymentDate"></span></div>
+      </div>
+
+      <table class="register-table">
+        <tbody>
+          <tr><td>Name of Contractor</td><td data-field="paymentContractor"></td></tr>
+          <tr><td>Name of Work</td><td data-field="paymentWork"></td></tr>
+          <tr><td>Agreement Number</td><td data-field="paymentAgreement"></td></tr>
+          <tr><td>Actual Date of Completion</td><td data-field="paymentActualCompletion"></td></tr>
+          <tr><td>Part/Final Bill</td><td data-field="paymentPartFinal"></td></tr>
+          <tr><td>Bill Register No</td><td data-field="paymentBillRegisterNo"></td></tr>
+          <tr><td>AES No</td><td data-field="paymentAesNo"></td></tr>
+          <tr><td>Head of Account</td><td data-field="paymentHeadOfAccount"></td></tr>
+          <tr class="tall"><td></td><td></td></tr>
+          <tr><td>M Book No.</td><td data-field="paymentMBookNo"></td></tr>
+          <tr><td>Base Value</td><td data-field="paymentBaseValue"></td></tr>
+          <tr><td>Bill Amount</td><td data-field="paymentBillAmount"></td></tr>
+          <tr><td><span data-field="paymentItLabel">IT (1% of Base Value)</span></td><td data-field="paymentIt"></td></tr>
+          <tr><td>WWC (1% of Base Value)</td><td data-field="paymentWwc"></td></tr>
+          <tr><td>GST (2% of Base Value)</td><td data-field="paymentGst"></td></tr>
+          <tr><td>Retention (2.5% of Base Value)</td><td data-field="paymentRetention"></td></tr>
+          <tr><td>Electricity Service Charge</td><td data-field="paymentECharge"></td></tr>
+          <tr><td>Fine: Due to the delay in Execution of Agreement</td><td data-field="paymentFineExec"></td></tr>
+          <tr><td>Fine : Due to the Delay in Completion of Work</td><td data-field="paymentFineComp"></td></tr>
+          <tr><td>Fine Others</td><td data-field="paymentFineOthers"></td></tr>
+          <tr><td>Cheque Amount to the Contractor</td><td data-field="paymentChequeAmount"></td></tr>
+          <tr><td>Date of Final Payment</td><td data-field="paymentFinalDate"></td></tr>
+          <tr><td>Date on which Security was released</td><td data-field="paymentSecurityDate"></td></tr>
+          <tr><td>Appropriation for the current year</td><td data-field="paymentAllocation"></td></tr>
+          <tr><td>Expenditure including this bill</td><td data-field="paymentExpenditure"></td></tr>
+          <tr><td>Balance</td><td data-field="paymentBalance"></td></tr>
+        </tbody>
+      </table>
+
+      <div class="register-foot">
+        <div>Assistant</div>
+        <div>Divisional Accounts Officer</div>
+      </div>
+    </section>
+
+    <section class="page" data-template="schedule-formats">
+      <div class="schedule-block">
+        <div class="schedule-title">SCHEDULE FOR GST RECOVERED FROM CONTRACTOR'S BILL FOR THE MONTH</div>
+        <div class="schedule-topline">
+          <div>OF <span data-field="scheduleMonth"></span></div>
+          <div>GST NO. <span data-field="scheduleGstNo"></span></div>
+        </div>
+        <div class="schedule-grid">
+          <div>1.Name of the contractor</div><div>:</div><div data-field="scheduleContractor"></div>
+          <div></div><div></div><div data-field="scheduleContractorAddress"></div>
+          <div>2. Name of work</div><div>:</div><div data-field="scheduleWork"></div>
+          <div class="space-lg"></div><div></div><div></div>
+          <div>3. Agreement No.</div><div>:</div><div data-field="scheduleAgreement"></div>
+          <div>4. Serial No. of Bill</div><div>:</div><div data-field="scheduleBillNo"></div>
+          <div>5. Gross amount of bill</div><div>:</div><div data-field="scheduleGrossAmount"></div>
+          <div>6. Amount of GST</div><div>:</div><div data-field="scheduleGstAmount"></div>
+        </div>
+        <div class="schedule-pay">
+          <div>7. Payable to</div><div>:</div><div>State Government<br>and Central Government</div><div class="schedule-sign">UNIVERSITY ENGINEER</div>
+        </div>
+      </div>
+
+      <div class="schedule-block space-lg">
+        <div class="schedule-title">SCHEDULE FOR INCOME TAX RECOVERED FROM CONTRACTOR'S BILL FOR THE MONTH</div>
+        <div class="schedule-topline">
+          <div>OF <span data-field="scheduleMonth2"></span></div>
+          <div>PAN. No <span data-field="schedulePanNo"></span></div>
+        </div>
+        <div class="schedule-grid">
+          <div>1.Name of the contractor</div><div>:</div><div data-field="scheduleContractor2"></div>
+          <div></div><div></div><div data-field="scheduleContractorAddress2"></div>
+          <div>2. Name of work</div><div>:</div><div data-field="scheduleWork2"></div>
+          <div class="space-lg"></div><div></div><div></div>
+          <div>3. Agreement No.</div><div>:</div><div data-field="scheduleAgreement2"></div>
+          <div>4. Serial No. of Bill</div><div>:</div><div data-field="scheduleBillNo2"></div>
+          <div>5. Gross amount of bill</div><div>:</div><div data-field="scheduleGrossAmount2"></div>
+          <div>6. Amount of Income Tax</div><div>:</div><div data-field="scheduleItAmount"></div>
+        </div>
+        <div class="schedule-pay">
+          <div>7. Payable to</div><div>:</div><div>Central Government</div><div class="schedule-sign">UNIVERSITY ENGINEER</div>
+        </div>
+      </div>
+
+      <div class="schedule-block space-lg">
+        <div class="schedule-title">SCHEDULE FOR K.C.W.W.F RECOVERED FROM CONTRACTOR'S BILL FOR THE MONTH OF</div>
+        <div class="schedule-topline">
+          <div><span data-field="scheduleMonth3"></span></div>
+          <div></div>
+        </div>
+        <div class="schedule-grid">
+          <div>1.Name of the contractor</div><div>:</div><div data-field="scheduleContractor3"></div>
+          <div></div><div></div><div data-field="scheduleContractorAddress3"></div>
+          <div>2. Name of work</div><div>:</div><div data-field="scheduleWork3"></div>
+          <div class="space-lg"></div><div></div><div></div>
+          <div>3. Agreement No.</div><div>:</div><div data-field="scheduleAgreement3"></div>
+          <div>4. Serial No. of Bill</div><div>:</div><div data-field="scheduleBillNo3"></div>
+          <div>5. Gross amount of bill</div><div>:</div><div data-field="scheduleGrossAmount3"></div>
+          <div>6. Amount of K.C.W.W.F.B</div><div>:</div><div data-field="scheduleWwcAmount"></div>
+        </div>
+        <div class="schedule-pay">
+          <div>7. Payable to</div><div>:</div><div>Secretary K.C.W.W.F Board<br>Thamalam P.O, Thiruvananthapuram</div><div class="schedule-sign">UNIVERSITY ENGINEER</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-template="audit-enfacement-format">
+      <div class="letter-header">MAHATMA GANDHI UNIVERSITY<br>ENGINEERING UNIT</div>
+      <div class="letter-meta">
+        <div>No <span data-field="enfNo"></span></div>
+        <div>Athirampuzha</div>
+      </div>
+      <div class="letter-body">
+        <div class="letter-row">From</div>
+        <div class="letter-row letter-indent">The University Engineer</div>
+        <div class="letter-row">To</div>
+        <div class="letter-row letter-indent">The Finance Officer</div>
+        <div class="letter-indent">Mahatma Gandhi University</div>
+        <div class="letter-row">Sir,</div>
+        <div class="letter-sub">
+          <div>Sub:</div>
+          <div data-field="enfSubject"></div>
+        </div>
+        <div class="letter-ref">
+          <div>Ref&nbsp;&nbsp;&nbsp;1.<span data-field="enfRef1"></span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.<span data-field="enfRef2"></span></div>
+        </div>
+        <div class="letter-para">
+          I am forwarding herewith C.C Bill No. <span data-field="enfBillNo"></span> for the above work in favour of Sri./M/s.
+          <span data-field="enfContractorFull"></span> duly passed for payment. Take necessary steps urgently for effecting payment.
+        </div>
+        <div class="letter-closing">Yours faithfully</div>
+        <div class="letter-sign">UNIVERSITY ENGINEER</div>
+        <div class="letter-acc">Acc.
+          <div class="line"><span>1.Audit Enfacement Sheet No</span><span></span></div>
+          <div class="line"><span>2.Bill Copy</span><span>One</span></div>
+          <div class="line"><span>3.Deduction schedule in duplicate</span><span>3 x 2</span></div>
+          <div class="line"><span>4.MBook No.</span><span></span></div>
+          <div class="line"><span>5.Copy of order/Agr Sch</span><span>One each</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audit-notes-container" class="page" data-template="audit-notes">
+      <div class="center-head">MAHATMA GANDHI UNIVERSITY</div>
+      <div class="center-sub">ENGINEERING UNIT</div>
+      <div class="center-sub">BILL REGISTER NO. <span data-field="notesBillRegisterNo"></span></div>
+      <div class="center-under">AUDIT NOTES</div>
+
+      <div class="notes-body">
+        <div class="notes-grid">
+          <div>1. Section</div><div>:</div><div data-field="notesSection"></div>
+          <div>2. Name of work</div><div>:</div><div data-field="notesNameOfWork"></div>
+          <div>3. Name of Contractor</div><div>:</div><div data-field="notesContractor"></div>
+          <div>4. C.C. No</div><div>:</div><div data-field="notesCcNo"></div>
+          <div>5. M.Book No. and Pages</div><div>:</div><div data-field="notesMbookPages"></div>
+          <div>6. Work order no and Date</div><div>:</div><div data-field="notesWorkOrder"></div>
+          <div>7. Agreement No. and Date</div><div>:</div><div data-field="notesAgreement"></div>
+          <div>8. Estimate amount</div><div>:</div><div data-field="notesEstimateAmount"></div>
+          <div>9. A.S.No./P.S.No. and Date</div><div>:</div><div data-field="notesAsPsNo"></div>
+          <div>10. T.S.No. and Date</div><div>:</div><div data-field="notesTsNo"></div>
+        </div>
+        <div class="notes-grid">
+          <div>11. Agreed P.A.C</div><div>:</div><div data-field="notesPac"></div>
+          <div>12. Base Value</div><div>:</div><div data-field="notesBaseValue"></div>
+          <div>GST (Base Value * 18%)</div><div>:</div><div data-field="notesGstAt18Percent"></div>
+        </div>
+        <div class="notes-deductions">
+          <div><u>Deductions</u></div>
+          <div class="notes-grid">
+            <div>GST (2% of Base Value above 2.5 lakh)</div><div>:</div><div data-field="notesGst"></div>
+            <div>IT</div><div>:</div><div data-field="notesIt"></div>
+            <div>WWC (1% of Base Value)</div><div>:</div><div data-field="notesWwc"></div>
+            <div>Amount of Cess to the Board</div><div>:</div><div data-field="notesWwfCessToBoard"></div>
+            <div>Cost of Collection Charge to FO's Account</div><div>:</div><div data-field="notesWwfCollectionCharge"></div>
+            <div>Retention</div><div>:</div><div data-field="notesRetention"></div>
+            <div>Fine</div><div>:</div><div data-field="notesFine"></div>
+          </div>
+        </div>
+        <div class="notes-grid" style="margin-top:8px;">
+          <div>Cheque Amount</div><div>:</div><div data-field="notesCheque"></div>
+        </div>
+        <div class="notes-grid">
+          <div>14. Since last Bill Amount</div><div>:</div><div data-field="notesSinceLastBill"></div>
+          <div>15. Expenditure during the Year (already booked)</div><div>:</div><div data-field="notesExpenditure"></div>
+          <div>16. Date of measurement by AE</div><div>:</div><div data-field="notesMeasureAe"></div>
+          <div>17. Date of check measure by AEE</div><div>:</div><div data-field="notesMeasureAee"></div>
+          <div>18. Date of completion as per agreement</div><div>:</div><div data-field="notesDoc"></div>
+          <div>19. Actual date of completion</div><div>:</div><div data-field="notesAdoc"></div>
+          <div>20. Whether N.L.C received</div><div>:</div><div data-field="notesNlc"></div>
+          <div>21. Whether there is any power of Attorney</div><div>:</div><div data-field="notesPoa"></div>
+          <div>22. Whether there is any attachment of prohibitory orders</div><div>:</div><div data-field="notesAttachment"></div>
+          <div>23. Remarks of funds and Head of A/C</div><div>:</div><div data-field="notesFunds"></div>
+        </div>
+        <div class="notes-para">
+          The calculations of quantity and amount and other details in respect of the bill have been checked
+          with reference to the agreement and other records and the following audit notes submitted for orders.
+        </div>
+        <div class="notes-sign">
+          <div>Date: <span data-field="notesDate"></span></div>
+          <div class="center">Name and signature of the Divisional Accountant Officer</div>
+          <div class="right">University Engineer</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-template="audit-notes">
+      <div class="excess-page">
+        <h2 class="excess-heading">Excess Quantities</h2>
+        <table class="excess-table">
+          <thead><tr><th>Item_No</th><th>Estimate_Qty</th><th>Actual_Qty</th><th>Excess_Qty</th></tr></thead>
+          <tbody data-extra-items="true"></tbody>
+        </table>
+        <div class="extra-count">
+          <h2>Number of Extra Items</h2>
+          <div class="extra-count-value" data-field="extraCount">No Extra Items</div>
+        </div>
+        <div class="notes-sign excess-sign">
+          <div>Date: <span data-field="notesDate"></span></div>
+          <div class="center">Name and signature of the<br />Divisional Accountant Officer</div>
+          <div class="right">University Engineer</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const applyPreviewData = (previewData) => {
+      try {
+        const { template, payload } = previewData || {};
+        const pages = document.querySelectorAll(".page");
+
+        if (template) {
+          pages.forEach((p) => {
+            p.style.display = p.getAttribute("data-template") === template ? "block" : "none";
+          });
+        } else {
+          pages.forEach((p) => { p.style.display = "block"; });
+        }
+
+        if (!payload) return;
+
+        const numberToWords = (num) => {
+          // simple Indian English conversion up to crores
+          num = Number(num);
+          if (Number.isNaN(num)) return "";
+          num = Math.round(num);
+          if (num === 0) return "zero";
+          const units = ["","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+          const tens = ["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+          const scales = [
+            {value: 1e7, name: 'crore'},
+            {value: 1e5, name: 'lakh'},
+            {value: 1e3, name: 'thousand'},
+            {value: 1, name: ''}
+          ];
+          const underThousand = (n) => {
+            let str = '';
+            if (n >= 100) {
+              str += units[Math.floor(n/100)] + ' hundred';
+              n = n % 100;
+              if (n) str += ' ';
+            }
+            if (n >= 20) {
+              str += tens[Math.floor(n/10)];
+              n = n % 10;
+              if (n) str += ' ';
+            }
+            if (n > 0 && n < 20) {
+              str += units[n];
+            }
+            return str;
+          };
+          let words = '';
+          let remainder = num;
+          for (const s of scales) {
+            if (remainder >= s.value) {
+              const part = Math.floor(remainder / s.value);
+              remainder = remainder % s.value;
+              words += underThousand(part) + (s.name ? ' ' + s.name : '');
+              if (remainder > 0) words += ' ';
+            }
+          }
+          return words.trim();
+        };
+
+        const amountFields = new Set([
+          "baseValue", "billAmount", "it", "wwc", "gst", "retention", "electricityCharges",
+          "fineExecution", "fineCompletion", "fineOthers", "chequeAmount", "allocation",
+          "expenditure", "balance", "paymentBaseValue", "paymentBillAmount", "paymentIt",
+          "paymentWwc", "paymentGst", "paymentRetention", "paymentECharge", "paymentFineExec",
+          "paymentFineComp", "paymentFineOthers", "paymentChequeAmount", "paymentAllocation",
+          "paymentExpenditure", "paymentBalance", "scheduleGrossAmount", "scheduleGstAmount",
+          "scheduleGrossAmount2", "scheduleItAmount", "scheduleGrossAmount3", "scheduleWwcAmount",
+          "notesEstimateAmount", "notesPac", "notesBaseValue", "notesGstAt18Percent", "notesUptoDateBill", "notesGst", "notesIt",
+          "notesWwfCessToBoard", "notesWwfCollectionCharge", "notesWwc", "notesRetention", "notesFine", "notesCheque", "notesSinceLastBill",
+          "notesExpenditure"
+        ]);
+
+        const deductionFields = new Set([
+          "it", "wwc", "gst", "retention", "fineExecution", "fineCompletion", "fineOthers",
+          "paymentIt", "paymentWwc", "paymentGst", "paymentRetention", "paymentFineExec",
+          "paymentFineComp", "paymentFineOthers", "scheduleGstAmount", "scheduleItAmount",
+          "scheduleWwcAmount", "notesGst", "notesIt", "notesWwfCessToBoard", "notesWwfCollectionCharge", "notesRetention", "notesFine"
+        ]);
+
+        const set = (field, value) => {
+          const el = document.querySelector(`[data-field="${field}"]`);
+          if (el) {
+            const text = value == null ? "" : value;
+            el.textContent = text;
+            el.classList.toggle("deduction-value", deductionFields.has(field));
+            if (!amountFields.has(field)) return;
+
+            const n = Number(text.toString().replace(/[^0-9.-]/g, ""));
+            if (!Number.isNaN(n) && text !== "" && text !== "0") {
+              const w = numberToWords(n);
+              if (w) el.textContent = `${Math.round(n).toLocaleString("en-IN")}/- (${w} rupees only)`;
+            }
+          }
+        };
+
+        const formatDate = (value) => {
+          if (!value) return "";
+          const text = String(value);
+          if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+            const [y, m, d] = text.split("-");
+            return `${d}-${m}-${y}`;
+          }
+          return text;
+        };
+
+        const toAmount = (value) => {
+          if (value === null || value === undefined || value === "") return "";
+          const n = Number(value);
+          if (Number.isNaN(n)) return String(value);
+          return String(Math.round(n));
+        };
+
+        const monthYear = (value) => {
+          if (!value) return "";
+          const dt = new Date(value);
+          if (Number.isNaN(dt.getTime())) return String(value);
+          return dt.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+        };
+
+        const mbookPages = [payload.mbookNumbers, payload.pages].filter(Boolean).join(" and ");
+        const workOrderText = [payload.workOrderNo, formatDate(payload.workOrderDate)].filter(Boolean).join(" dated ");
+        const agreementText = [payload.agreementNo, formatDate(payload.agreementDate)].filter(Boolean).join(" dated ");
+        const administrativeSanctionText = [payload.esasNo, formatDate(payload.esasDate)].filter(Boolean).join(" dated ");
+        const technicalSanctionText = [payload.tsqsNo, formatDate(payload.tsqsDate)].filter(Boolean).join(" dated ");
+        const wwf = Number(payload.wwc) || 0;
+        const wwfCollectionCharge = Math.round(wwf * 0.01);
+        const wwfCessToBoard = wwf - wwfCollectionCharge;
+        const isCompany = String(payload.personCompany || payload.coy || "").toLowerCase() === "company";
+        const itRateLabel = isCompany ? "IT (2% of Base Value)" : "IT (1% of Base Value)";
+
+        set("itLabel", itRateLabel);
+        set("paymentItLabel", itRateLabel);
+
+        set("aesRegisterNo", payload.auditEnfacementSheetNo || "");
+        set("aesDate", formatDate(payload.billDate));
+        set("nameOfContractor", payload.contractorName || "");
+        set("nameOfWork", payload.nameOfWork || "");
+        set("agreementNumber", payload.agreementNo || "");
+        set("actualDateOfCompletion", formatDate(payload.actualDateOfCompletion));
+        set("partFinal", payload.partFinal || "");
+        set("billRegisterNo", payload.billRegisterNo || "");
+        set("headOfAccount", payload.headOfAccount || "");
+        set("mBookNo", payload.mbookNumbers || "");
+        set("baseValue", toAmount(payload.baseValue));
+        set("billAmount", toAmount(payload.billAmount));
+        set("it", toAmount(payload.it));
+        set("wwc", toAmount(payload.wwc));
+        set("gst", toAmount(payload.gst));
+        set("retention", toAmount(payload.retention));
+        set("electricityCharges", toAmount(payload.electricityCharges));
+        set("fineExecution", toAmount(payload.fineExecution));
+        set("fineCompletion", toAmount(payload.fineCompletion));
+        set("fineOthers", toAmount(payload.fineOthers));
+        set("chequeAmount", toAmount(payload.chequeAmount));
+        set("dateOfFinalPayment", formatDate(payload.closingDate));
+        set("dateSecurityReleased", formatDate(payload.closingDate));
+        set("allocation", toAmount(payload.allocation));
+        set("expenditure", toAmount(payload.expenditure));
+        set("balance", toAmount(payload.balance));
+
+        set("paymentRegisterNo", payload.paymentRegisterNo || "");
+        set("paymentDate", formatDate(payload.billDate));
+        set("paymentContractor", payload.contractorName || "");
+        set("paymentWork", payload.nameOfWork || "");
+        set("paymentAgreement", payload.agreementNo || "");
+        set("paymentActualCompletion", formatDate(payload.actualDateOfCompletion));
+        set("paymentPartFinal", payload.partFinal || "");
+        set("paymentBillRegisterNo", payload.billRegisterNo || "");
+        set("paymentAesNo", payload.auditEnfacementSheetNo || "");
+        set("paymentHeadOfAccount", payload.headOfAccount || "");
+        set("paymentMBookNo", payload.mbookNumbers || "");
+        set("paymentBaseValue", toAmount(payload.baseValue));
+        set("paymentBillAmount", toAmount(payload.billAmount));
+        set("paymentIt", toAmount(payload.it));
+        set("paymentWwc", toAmount(payload.wwc));
+        set("paymentGst", toAmount(payload.gst));
+        set("paymentRetention", toAmount(payload.retention));
+        set("paymentECharge", toAmount(payload.electricityCharges));
+        set("paymentFineExec", toAmount(payload.fineExecution));
+        set("paymentFineComp", toAmount(payload.fineCompletion));
+        set("paymentFineOthers", toAmount(payload.fineOthers));
+        set("paymentChequeAmount", toAmount(payload.chequeAmount));
+        set("paymentFinalDate", formatDate(payload.closingDate));
+        set("paymentSecurityDate", formatDate(payload.closingDate));
+        set("paymentAllocation", toAmount(payload.allocation));
+        set("paymentExpenditure", toAmount(payload.expenditure));
+        set("paymentBalance", toAmount(payload.balance));
+
+        set("scheduleMonth", monthYear(payload.billDate));
+        set("scheduleMonth2", monthYear(payload.billDate));
+        set("scheduleMonth3", monthYear(payload.billDate));
+        set("scheduleGstNo", payload.gstNo || "");
+        set("schedulePanNo", payload.panNo || "");
+        set("scheduleContractor", payload.contractorName || "");
+        set("scheduleContractorAddress", payload.contractorAddress || "");
+        set("scheduleWork", payload.nameOfWork || "");
+        set("scheduleAgreement", agreementText);
+        set("scheduleBillNo", `${payload.ccn || payload.cc || ""} ${payload.partFinal || ""}`.trim());
+        set("scheduleGrossAmount", toAmount(payload.billAmount));
+        set("scheduleGstAmount", toAmount(payload.gst));
+        set("scheduleContractor2", payload.contractorName || "");
+        set("scheduleContractorAddress2", payload.contractorAddress || "");
+        set("scheduleWork2", payload.nameOfWork || "");
+        set("scheduleAgreement2", agreementText);
+        set("scheduleBillNo2", `${payload.ccn || payload.cc || ""} ${payload.partFinal || ""}`.trim());
+        set("scheduleGrossAmount2", toAmount(payload.billAmount));
+        set("scheduleItAmount", toAmount(payload.it));
+        set("scheduleContractor3", payload.contractorName || "");
+        set("scheduleContractorAddress3", payload.contractorAddress || "");
+        set("scheduleWork3", payload.nameOfWork || "");
+        set("scheduleAgreement3", agreementText);
+        set("scheduleBillNo3", `${payload.ccn || payload.cc || ""} ${payload.partFinal || ""}`.trim());
+        set("scheduleGrossAmount3", toAmount(payload.billAmount));
+        set("scheduleWwcAmount", toAmount(payload.wwc));
+
+        set("enfNo", payload.workOrderNo || "");
+        set("enfSubject", payload.nameOfWork || "");
+        set("enfRef1", `${payload.agreementNo || ""}${payload.agreementDate ? " dated " + formatDate(payload.agreementDate) : ""}`);
+        set("enfRef2", `${payload.workOrderNo || ""}${payload.workOrderDate ? " dated " + formatDate(payload.workOrderDate) : ""}`);
+        set("enfBillNo", `${payload.ccn || payload.cc || ""} ${payload.partFinal || ""}`.trim());
+        set("enfContractorFull", [payload.contractorName, payload.contractorAddress].filter(Boolean).join(", "));
+
+        set("notesSection", payload.section || "");
+        set("notesNameOfWork", payload.nameOfWork || "");
+        set("notesContractor", payload.contractorName || "");
+        set("notesBillRegisterNo", payload.billRegisterNo || "");
+        set("notesCcNo", `${payload.ccn || payload.cc || ""} ${payload.partFinal || ""}`.trim());
+        set("notesMbookPages", mbookPages || "");
+        set("notesWorkOrder", workOrderText || "");
+        set("notesAgreement", agreementText || "");
+        set("notesEstimateAmount", toAmount(payload.estimateAmount));
+        set("notesAsPsNo", administrativeSanctionText);
+        set("notesTsNo", technicalSanctionText);
+        set("notesPac", toAmount(payload.pac));
+        set("notesBaseValue", toAmount(payload.baseValue));
+        set("notesGstAt18Percent", toAmount(payload.gstAt18Percent));
+        set("notesGst", toAmount(payload.gst));
+        set("notesIt", toAmount(payload.it));
+        set("notesWwfCessToBoard", toAmount(wwfCessToBoard));
+        set("notesWwfCollectionCharge", toAmount(wwfCollectionCharge));
+        set("notesRetention", toAmount(payload.retention));
+        set("notesFine", toAmount((Number(payload.fineExecution || 0) + Number(payload.fineCompletion || 0))));
+        set("notesCheque", toAmount(payload.chequeAmount));
+        set("notesSinceLastBill", toAmount(payload.uptoDateBillAmount ?? payload.uptodateBillAmount));
+        set("notesExpenditure", "Nil");
+        set("notesMeasureAe", formatDate(payload.measurementByAE));
+        set("notesMeasureAee", formatDate(payload.measurementByAEE));
+        set("notesDoc", formatDate(payload.dateOfCompletion));
+        set("notesAdoc", formatDate(payload.actualDateOfCompletion));
+        set("notesNlc", payload.nlcReceived || "Yes");
+        set("notesPoa", "No");
+        set("notesAttachment", "No");
+        set("notesFunds", [payload.budgetCode, payload.headOfAccount].filter(Boolean).join(" - "));
+        set("notesDate", formatDate(payload.billDate));
+      } catch (err) {
+        console.error("Preview populate error", err);
+      }
+    };
+
+    const bootPreview = () => {
+      if (window.__AUDIT_PREVIEW__) {
+        applyPreviewData(window.__AUDIT_PREVIEW__);
+      }
+    };
+
+    window.addEventListener("message", (event) => {
+      applyPreviewData(event.data || null);
+    });
+
+    window.addEventListener("DOMContentLoaded", bootPreview);
+    window.addEventListener("audit-preview-ready", bootPreview);
+
+    if (document.readyState !== "loading") {
+      bootPreview();
+    }
+  </script>
+</body>
+</html>

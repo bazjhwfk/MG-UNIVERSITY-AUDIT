@@ -1,0 +1,462 @@
+@page { size: A4; margin: 8mm; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #111;
+  font-family: "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.24;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+main { padding: 6mm 0; }
+
+.page {
+  display: none;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 10px;
+  padding: 11mm 10mm;
+  box-sizing: border-box;
+  break-after: page;
+  page-break-after: always;
+  background: white;
+}
+
+.page:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+[data-field] {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.deduction-value {
+  color: #b00020;
+  font-weight: 700;
+}
+
+
+.doc-title {
+  text-align: center;
+  font-size: 27px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 0 0 12px;
+}
+
+.register-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2px 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.register-head .left,
+.register-head .right {
+  display: flex;
+  gap: 8px;
+}
+
+.register-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.register-table td {
+  border: 1px solid #111;
+  font-size: 13px;
+  padding: 8px 7px;
+  vertical-align: top;
+}
+
+.register-table td:first-child { width: 45%; }
+.register-table td:last-child { width: 55%; }
+.register-table .tall td { padding-top: 18px; padding-bottom: 18px; }
+
+.register-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding: 0 4px;
+  font-size: 13px;
+}
+
+.center-head {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.center-sub {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.center-under {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: underline;
+  margin: 0 0 10px;
+}
+
+.notes-body {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+#audit-notes-container .notes-body {
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 40% 4% 56%;
+  row-gap: 5px;
+}
+
+#audit-notes-container .notes-grid {
+  row-gap: 7px;
+}
+
+.notes-remarks {
+  margin: 10px 0 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.notes-remark-muted { color: #e7e7e7; }
+
+.notes-deductions {
+  margin-left: 10%;
+}
+
+.notes-para {
+  margin-top: 12px;
+  text-align: justify;
+  font-size: 13px;
+}
+
+#audit-notes-container .notes-para {
+  margin-top: 18px;
+  font-size: 15px;
+}
+
+.notes-sign {
+  margin-top: 58px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 13px;
+}
+
+#audit-notes-container .notes-sign {
+  margin-top: 68px;
+  font-size: 15px;
+}
+
+.notes-sign .center { text-align: left; }
+.notes-sign .right { text-align: right; font-weight: 700; }
+
+.notes-page-break {
+  break-before: page;
+  page-break-before: always;
+}
+
+.excess-table {
+  width: 72%;
+  border-collapse: collapse;
+  margin: 20px auto 0;
+  table-layout: fixed;
+}
+
+.excess-table th,
+.excess-table td {
+  border: 1px solid #111;
+  padding: 5px 8px;
+  text-align: center;
+  height: 22px;
+}
+
+.excess-table th {
+  font-size: 16px;
+  color: #173b6d;
+}
+
+.excess-table th:nth-child(1) { width: 22%; }
+.excess-table th:nth-child(2) { width: 28%; }
+.excess-table th:nth-child(3) { width: 25%; }
+.excess-table th:nth-child(4) { width: 25%; }
+
+.excess-page {
+  min-height: 265mm;
+  position: relative;
+}
+
+.excess-heading {
+  margin: 0;
+  font-size: 18px;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.extra-count {
+  margin-top: 66mm;
+  margin-left: 0;
+}
+
+.extra-count h2 {
+  margin: 0 0 28px;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.extra-count-value {
+  margin-left: 14%;
+  font-size: 16px;
+}
+
+.excess-sign {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 0;
+}
+
+.letter-header {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 4px;
+}
+
+.letter-meta {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.letter-body {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.letter-row { margin-top: 8px; }
+.letter-indent { padding-left: 18px; }
+
+.letter-sub {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.letter-ref {
+  margin-top: 14px;
+  padding-left: 18px;
+}
+
+.letter-ref div { margin-top: 2px; }
+
+.letter-para {
+  margin-top: 14px;
+  text-align: justify;
+  text-indent: 32px;
+}
+
+.letter-closing {
+  margin-top: 22px;
+  text-align: right;
+  padding-right: 24px;
+}
+
+.letter-sign {
+  margin-top: 12px;
+  text-align: right;
+  padding-right: 24px;
+  font-weight: 700;
+}
+
+.letter-acc {
+  margin-top: 16px;
+  font-size: 12px;
+}
+
+.letter-acc .line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  max-width: 320px;
+  gap: 14px;
+}
+
+.schedule-block {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.schedule-title { font-size: 15px; font-weight: 600; }
+
+.schedule-topline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.schedule-grid {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: 30% 4% 66%;
+  row-gap: 5px;
+  font-size: 12px;
+}
+
+.schedule-pay {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 30% 4% 44% 22%;
+  font-size: 12px;
+}
+
+.schedule-sign {
+  text-align: right;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.space-lg { margin-top: 14px; }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .controls {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  #print-preview-container .page,
+  .page {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 8mm !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border: none !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  #print-preview-container .page:last-child,
+  .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
+
+@media screen {
+  body {
+    background: #dbe1ea;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 28px 18px 36px;
+    flex-wrap: wrap;
+  }
+  .page {
+    background: white;
+    box-shadow: 0 18px 40px rgba(18, 32, 54, 0.14);
+    border: 1px solid rgba(19, 33, 56, 0.08);
+    border-radius: 2px;
+    width: min(210mm, calc(100vw - 48px));
+    max-width: calc(100vw - 48px);
+    min-height: 297mm;
+    margin: 0 auto;
+  }
+}
+
+/*
+ * The native Windows preview uses the WebBrowser control. Its IE engine does
+ * not implement CSS Grid, so retain the same column proportions with flex
+ * wrapping only for IE. Modern MERN preview browsers continue to use Grid.
+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .notes-grid,
+  .schedule-grid,
+  .schedule-pay,
+  .schedule-topline,
+  .notes-sign,
+  .letter-acc {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .notes-grid > div,
+  .schedule-grid > div,
+  .schedule-pay > div,
+  .schedule-topline > div,
+  .notes-sign > div,
+  .letter-acc > div {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .notes-grid > div,
+  .schedule-grid > div {
+    margin-bottom: 5px;
+  }
+
+  .notes-grid > div:nth-child(3n + 1) { flex: 0 0 40%; }
+  .notes-grid > div:nth-child(3n + 2) { flex: 0 0 4%; }
+  .notes-grid > div:nth-child(3n) { flex: 0 0 56%; }
+
+  .schedule-topline > div { flex: 0 0 50%; }
+  .schedule-grid > div:nth-child(3n + 1) { flex: 0 0 30%; }
+  .schedule-grid > div:nth-child(3n + 2) { flex: 0 0 4%; }
+  .schedule-grid > div:nth-child(3n) { flex: 0 0 66%; }
+
+  .schedule-pay > div:nth-child(4n + 1) { flex: 0 0 30%; }
+  .schedule-pay > div:nth-child(4n + 2) { flex: 0 0 4%; }
+  .schedule-pay > div:nth-child(4n + 3) { flex: 0 0 44%; }
+  .schedule-pay > div:nth-child(4n) { flex: 0 0 22%; }
+
+  .notes-sign > div { flex: 0 0 33.3333%; }
+  .letter-acc > div:first-child { flex: 1 1 auto; }
+  .letter-acc > div:last-child { flex: 0 0 auto; }
+}

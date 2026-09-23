@@ -1,0 +1,815 @@
+﻿{
+    "source":  "NativeAudit.Shared.dll (WPF desktop build)",
+    "calculations":  [
+                         {
+                             "input":  {
+                                           "name":  "person final basic",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  100000,
+                                           "baseAmount":  90000,
+                                           "billAmount":  106200,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "100000",
+                                              "ba":  "90000",
+                                              "billAmount":  "106200",
+                                              "baseAmount":  "90000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "900",
+                                              "wwc":  "900",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "1800",
+                                              "wit":  "104400",
+                                              "eh":  "105300",
+                                              "cheque":  "104400",
+                                              "wwcCollectionCharge":  "9",
+                                              "wwcCessToBoard":  "891",
+                                              "billAmountInWords":  "one lakh six thousand two hundred rupees",
+                                              "netPayableInWords":  "one lakh four thousand four hundred rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "company final above 2.5L",
+                                           "personCompany":  "Company",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  500000,
+                                           "baseAmount":  300000,
+                                           "billAmount":  354000,
+                                           "electricityCharges":  1250
+                                       },
+                             "expected":  {
+                                              "pac":  "500000",
+                                              "ba":  "300000",
+                                              "billAmount":  "354000",
+                                              "baseAmount":  "300000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "6000",
+                                              "it":  "6000",
+                                              "wwc":  "3000",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "16250",
+                                              "wit":  "337750",
+                                              "eh":  "343750",
+                                              "cheque":  "337750",
+                                              "wwcCollectionCharge":  "30",
+                                              "wwcCessToBoard":  "2970",
+                                              "billAmountInWords":  "three lakh fifty four thousand rupees",
+                                              "netPayableInWords":  "three lakh thirty seven thousand seven hundred fifty rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "part bill retention",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Part",
+                                           "fine":  "No",
+                                           "pac":  800000,
+                                           "baseAmount":  260000.5,
+                                           "billAmount":  306800.59,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "800000",
+                                              "ba":  "260000.5",
+                                              "billAmount":  "306801",
+                                              "baseAmount":  "260000.5",
+                                              "bv":  "0",
+                                              "nlc":  "Part Bill",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "5200",
+                                              "it":  "2600",
+                                              "wwc":  "2600",
+                                              "retention":  "6500",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "16900",
+                                              "wit":  "289901",
+                                              "eh":  "292501",
+                                              "cheque":  "289901",
+                                              "wwcCollectionCharge":  "26",
+                                              "wwcCessToBoard":  "2574",
+                                              "billAmountInWords":  "three lakh six thousand eight hundred rupees",
+                                              "netPayableInWords":  "two lakh eighty nine thousand nine hundred one rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "derive base from bill",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  50000,
+                                           "baseAmount":  0,
+                                           "billAmount":  118000,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "50000",
+                                              "ba":  "100000",
+                                              "billAmount":  "118000",
+                                              "baseAmount":  "100000",
+                                              "bv":  "50000",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "1000",
+                                              "wwc":  "1000",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "2000",
+                                              "wit":  "116000",
+                                              "eh":  "117000",
+                                              "cheque":  "116000",
+                                              "wwcCollectionCharge":  "10",
+                                              "wwcCessToBoard":  "990",
+                                              "billAmountInWords":  "one lakh eighteen thousand rupees",
+                                              "netPayableInWords":  "one lakh sixteen thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "derive bill from base",
+                                           "personCompany":  "Company",
+                                           "partFinal":  "Part",
+                                           "fine":  "No",
+                                           "pac":  50000,
+                                           "baseAmount":  123456.78,
+                                           "billAmount":  0,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "50000",
+                                              "ba":  "123456.78",
+                                              "billAmount":  "145679",
+                                              "baseAmount":  "123456.78",
+                                              "bv":  "73456.78",
+                                              "nlc":  "Part Bill",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "2469",
+                                              "wwc":  "1235",
+                                              "retention":  "3086",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "6790",
+                                              "wit":  "138889",
+                                              "eh":  "141358",
+                                              "cheque":  "138889",
+                                              "wwcCollectionCharge":  "12",
+                                              "wwcCessToBoard":  "1223",
+                                              "billAmountInWords":  "one lakh forty five thousand six hundred seventy nine rupees",
+                                              "netPayableInWords":  "one lakh thirty eight thousand eight hundred eighty nine rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "half rounding wwc",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  200000,
+                                           "baseAmount":  123450,
+                                           "billAmount":  145671,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "200000",
+                                              "ba":  "123450",
+                                              "billAmount":  "145671",
+                                              "baseAmount":  "123450",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "1235",
+                                              "wwc":  "1235",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "2470",
+                                              "wit":  "143201",
+                                              "eh":  "144436",
+                                              "cheque":  "143201",
+                                              "wwcCollectionCharge":  "12",
+                                              "wwcCessToBoard":  "1223",
+                                              "billAmountInWords":  "one lakh forty five thousand six hundred seventy one rupees",
+                                              "netPayableInWords":  "one lakh forty three thousand two hundred one rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "half rounding it",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Part",
+                                           "fine":  "No",
+                                           "pac":  200000,
+                                           "baseAmount":  12350,
+                                           "billAmount":  14573,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "200000",
+                                              "ba":  "12350",
+                                              "billAmount":  "14573",
+                                              "baseAmount":  "12350",
+                                              "bv":  "0",
+                                              "nlc":  "Part Bill",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "124",
+                                              "wwc":  "124",
+                                              "retention":  "309",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "557",
+                                              "wit":  "14016",
+                                              "eh":  "14140",
+                                              "cheque":  "14016",
+                                              "wwcCollectionCharge":  "1",
+                                              "wwcCessToBoard":  "123",
+                                              "billAmountInWords":  "fourteen thousand five hundred seventy three rupees",
+                                              "netPayableInWords":  "fourteen thousand sixteen rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "completion delay 10 days",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  400000,
+                                           "baseAmount":  350000,
+                                           "billAmount":  413000,
+                                           "electricityCharges":  0,
+                                           "documentDate":  "2026-03-01",
+                                           "actualDocumentDate":  "2026-03-11"
+                                       },
+                             "expected":  {
+                                              "pac":  "400000",
+                                              "ba":  "350000",
+                                              "billAmount":  "413000",
+                                              "baseAmount":  "350000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  10,
+                                              "delay":  0,
+                                              "gst":  "7000",
+                                              "it":  "3500",
+                                              "wwc":  "3500",
+                                              "retention":  "0",
+                                              "fine":  "8000",
+                                              "fineagr":  "0",
+                                              "dwoit":  "22000",
+                                              "wit":  "391000",
+                                              "eh":  "394500",
+                                              "cheque":  "391000",
+                                              "wwcCollectionCharge":  "35",
+                                              "wwcCessToBoard":  "3465",
+                                              "billAmountInWords":  "four lakh thirteen thousand rupees",
+                                              "netPayableInWords":  "three lakh ninety one thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "completion delay 14 days",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  400000,
+                                           "baseAmount":  350000,
+                                           "billAmount":  413000,
+                                           "electricityCharges":  0,
+                                           "documentDate":  "2026-03-01",
+                                           "actualDocumentDate":  "2026-03-15"
+                                       },
+                             "expected":  {
+                                              "pac":  "400000",
+                                              "ba":  "350000",
+                                              "billAmount":  "413000",
+                                              "baseAmount":  "350000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  14,
+                                              "delay":  0,
+                                              "gst":  "7000",
+                                              "it":  "3500",
+                                              "wwc":  "3500",
+                                              "retention":  "0",
+                                              "fine":  "8000",
+                                              "fineagr":  "0",
+                                              "dwoit":  "22000",
+                                              "wit":  "391000",
+                                              "eh":  "394500",
+                                              "cheque":  "391000",
+                                              "wwcCollectionCharge":  "35",
+                                              "wwcCessToBoard":  "3465",
+                                              "billAmountInWords":  "four lakh thirteen thousand rupees",
+                                              "netPayableInWords":  "three lakh ninety one thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "completion delay caps at 1 lakh",
+                                           "personCompany":  "Company",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  400000,
+                                           "baseAmount":  350000,
+                                           "billAmount":  413000,
+                                           "electricityCharges":  0,
+                                           "documentDate":  "2026-01-01",
+                                           "actualDocumentDate":  "2026-04-15"
+                                       },
+                             "expected":  {
+                                              "pac":  "400000",
+                                              "ba":  "350000",
+                                              "billAmount":  "413000",
+                                              "baseAmount":  "350000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  104,
+                                              "delay":  0,
+                                              "gst":  "7000",
+                                              "it":  "7000",
+                                              "wwc":  "3500",
+                                              "retention":  "0",
+                                              "fine":  "100000",
+                                              "fineagr":  "0",
+                                              "dwoit":  "117500",
+                                              "wit":  "295500",
+                                              "eh":  "302500",
+                                              "cheque":  "295500",
+                                              "wwcCollectionCharge":  "35",
+                                              "wwcCessToBoard":  "3465",
+                                              "billAmountInWords":  "four lakh thirteen thousand rupees",
+                                              "netPayableInWords":  "two lakh ninety five thousand five hundred rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "part bill with delay remainder",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Part",
+                                           "fine":  "No",
+                                           "pac":  300000,
+                                           "baseAmount":  100000,
+                                           "billAmount":  118000,
+                                           "electricityCharges":  0,
+                                           "documentDate":  "2026-03-01",
+                                           "actualDocumentDate":  "2026-03-04"
+                                       },
+                             "expected":  {
+                                              "pac":  "300000",
+                                              "ba":  "100000",
+                                              "billAmount":  "118000",
+                                              "baseAmount":  "100000",
+                                              "bv":  "0",
+                                              "nlc":  "Part Bill",
+                                              "days":  3,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "1000",
+                                              "wwc":  "1000",
+                                              "retention":  "2500",
+                                              "fine":  "3000",
+                                              "fineagr":  "0",
+                                              "dwoit":  "7500",
+                                              "wit":  "110500",
+                                              "eh":  "111500",
+                                              "cheque":  "110500",
+                                              "wwcCollectionCharge":  "10",
+                                              "wwcCessToBoard":  "990",
+                                              "billAmountInWords":  "one lakh eighteen thousand rupees",
+                                              "netPayableInWords":  "one lakh ten thousand five hundred rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "early completion negative days",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  300000,
+                                           "baseAmount":  100000,
+                                           "billAmount":  118000,
+                                           "electricityCharges":  0,
+                                           "documentDate":  "2026-03-10",
+                                           "actualDocumentDate":  "2026-03-01"
+                                       },
+                             "expected":  {
+                                              "pac":  "300000",
+                                              "ba":  "100000",
+                                              "billAmount":  "118000",
+                                              "baseAmount":  "100000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  -9,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "1000",
+                                              "wwc":  "1000",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "2000",
+                                              "wit":  "116000",
+                                              "eh":  "117000",
+                                              "cheque":  "116000",
+                                              "wwcCollectionCharge":  "10",
+                                              "wwcCessToBoard":  "990",
+                                              "billAmountInWords":  "one lakh eighteen thousand rupees",
+                                              "netPayableInWords":  "one lakh sixteen thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "agreement delay min 1000",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  60000,
+                                           "baseAmount":  50000,
+                                           "billAmount":  59000,
+                                           "electricityCharges":  0,
+                                           "workOrderDate":  "2026-01-01",
+                                           "agreementDate":  "2026-01-20"
+                                       },
+                             "expected":  {
+                                              "pac":  "60000",
+                                              "ba":  "50000",
+                                              "billAmount":  "59000",
+                                              "baseAmount":  "50000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  19,
+                                              "gst":  "0",
+                                              "it":  "500",
+                                              "wwc":  "500",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "1000",
+                                              "dwoit":  "2000",
+                                              "wit":  "57000",
+                                              "eh":  "57500",
+                                              "cheque":  "57000",
+                                              "wwcCollectionCharge":  "5",
+                                              "wwcCessToBoard":  "495",
+                                              "billAmountInWords":  "fifty nine thousand rupees",
+                                              "netPayableInWords":  "fifty seven thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "agreement delay 1 percent",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  750000,
+                                           "baseAmount":  500000,
+                                           "billAmount":  590000,
+                                           "electricityCharges":  500,
+                                           "workOrderDate":  "2026-01-01",
+                                           "agreementDate":  "2026-02-01"
+                                       },
+                             "expected":  {
+                                              "pac":  "750000",
+                                              "ba":  "500000",
+                                              "billAmount":  "590000",
+                                              "baseAmount":  "500000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  31,
+                                              "gst":  "10000",
+                                              "it":  "5000",
+                                              "wwc":  "5000",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "7500",
+                                              "dwoit":  "28000",
+                                              "wit":  "562000",
+                                              "eh":  "567000",
+                                              "cheque":  "562000",
+                                              "wwcCollectionCharge":  "50",
+                                              "wwcCessToBoard":  "4950",
+                                              "billAmountInWords":  "five lakh ninety thousand rupees",
+                                              "netPayableInWords":  "five lakh sixty two thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "fine waiver",
+                                           "personCompany":  "Company",
+                                           "partFinal":  "Final",
+                                           "fine":  "Yes",
+                                           "pac":  750000,
+                                           "baseAmount":  500000,
+                                           "billAmount":  590000,
+                                           "electricityCharges":  0,
+                                           "workOrderDate":  "2026-01-01",
+                                           "agreementDate":  "2026-02-01",
+                                           "documentDate":  "2026-03-01",
+                                           "actualDocumentDate":  "2026-03-20"
+                                       },
+                             "expected":  {
+                                              "pac":  "750000",
+                                              "ba":  "500000",
+                                              "billAmount":  "590000",
+                                              "baseAmount":  "500000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  19,
+                                              "delay":  31,
+                                              "gst":  "10000",
+                                              "it":  "10000",
+                                              "wwc":  "5000",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "25000",
+                                              "wit":  "565000",
+                                              "eh":  "575000",
+                                              "cheque":  "565000",
+                                              "wwcCollectionCharge":  "50",
+                                              "wwcCessToBoard":  "4950",
+                                              "billAmountInWords":  "five lakh ninety thousand rupees",
+                                              "netPayableInWords":  "five lakh sixty five thousand rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "leap year span",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  100000,
+                                           "baseAmount":  80000,
+                                           "billAmount":  94400,
+                                           "electricityCharges":  0,
+                                           "documentDate":  "2028-02-20",
+                                           "actualDocumentDate":  "2028-03-05"
+                                       },
+                             "expected":  {
+                                              "pac":  "100000",
+                                              "ba":  "80000",
+                                              "billAmount":  "94400",
+                                              "baseAmount":  "80000",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  14,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "800",
+                                              "wwc":  "800",
+                                              "retention":  "0",
+                                              "fine":  "2000",
+                                              "fineagr":  "0",
+                                              "dwoit":  "3600",
+                                              "wit":  "90800",
+                                              "eh":  "91600",
+                                              "cheque":  "90800",
+                                              "wwcCollectionCharge":  "8",
+                                              "wwcCessToBoard":  "792",
+                                              "billAmountInWords":  "ninety four thousand four hundred rupees",
+                                              "netPayableInWords":  "ninety thousand eight hundred rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "all zero",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  0,
+                                           "baseAmount":  0,
+                                           "billAmount":  0,
+                                           "electricityCharges":  0
+                                       },
+                             "expected":  {
+                                              "pac":  "0",
+                                              "ba":  "0",
+                                              "billAmount":  "0",
+                                              "baseAmount":  "0",
+                                              "bv":  "0",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "0",
+                                              "wwc":  "0",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "0",
+                                              "wit":  "0",
+                                              "eh":  "0",
+                                              "cheque":  "0",
+                                              "wwcCollectionCharge":  "0",
+                                              "wwcCessToBoard":  "0",
+                                              "billAmountInWords":  "zero rupees",
+                                              "netPayableInWords":  "zero rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "negative inputs clamp",
+                                           "personCompany":  "Person",
+                                           "partFinal":  "Final",
+                                           "fine":  "No",
+                                           "pac":  -5,
+                                           "baseAmount":  -100,
+                                           "billAmount":  1180,
+                                           "electricityCharges":  -3
+                                       },
+                             "expected":  {
+                                              "pac":  "0",
+                                              "ba":  "1000",
+                                              "billAmount":  "1180",
+                                              "baseAmount":  "1000",
+                                              "bv":  "1000",
+                                              "nlc":  "Yes",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "0",
+                                              "it":  "10",
+                                              "wwc":  "10",
+                                              "retention":  "0",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "20",
+                                              "wit":  "1160",
+                                              "eh":  "1170",
+                                              "cheque":  "1160",
+                                              "wwcCollectionCharge":  "0",
+                                              "wwcCessToBoard":  "10",
+                                              "billAmountInWords":  "one thousand one hundred eighty rupees",
+                                              "netPayableInWords":  "one thousand one hundred sixty rupees"
+                                          }
+                         },
+                         {
+                             "input":  {
+                                           "name":  "crore scale",
+                                           "personCompany":  "Company",
+                                           "partFinal":  "Part",
+                                           "fine":  "No",
+                                           "pac":  150000000,
+                                           "baseAmount":  123456789.55,
+                                           "billAmount":  145679011.67,
+                                           "electricityCharges":  98765
+                                       },
+                             "expected":  {
+                                              "pac":  "150000000",
+                                              "ba":  "123456789.55",
+                                              "billAmount":  "145679012",
+                                              "baseAmount":  "123456789.55",
+                                              "bv":  "0",
+                                              "nlc":  "Part Bill",
+                                              "days":  0,
+                                              "delay":  0,
+                                              "gst":  "2469136",
+                                              "it":  "2469136",
+                                              "wwc":  "1234568",
+                                              "retention":  "3086420",
+                                              "fine":  "0",
+                                              "fineagr":  "0",
+                                              "dwoit":  "9358025",
+                                              "wit":  "136320987",
+                                              "eh":  "138790123",
+                                              "cheque":  "136320987",
+                                              "wwcCollectionCharge":  "12346",
+                                              "wwcCessToBoard":  "1222222",
+                                              "billAmountInWords":  "fourteen crore fifty six lakh seventy nine thousand eleven rupees",
+                                              "netPayableInWords":  "thirteen crore sixty three lakh twenty thousand nine hundred eighty seven rupees"
+                                          }
+                         }
+                     ],
+    "amountWords":  [
+                        {
+                            "amount":  "0",
+                            "expected":  "zero rupees"
+                        },
+                        {
+                            "amount":  "5",
+                            "expected":  "five rupees"
+                        },
+                        {
+                            "amount":  "19",
+                            "expected":  "nineteen rupees"
+                        },
+                        {
+                            "amount":  "20",
+                            "expected":  "twenty rupees"
+                        },
+                        {
+                            "amount":  "21",
+                            "expected":  "twenty one rupees"
+                        },
+                        {
+                            "amount":  "99",
+                            "expected":  "ninety nine rupees"
+                        },
+                        {
+                            "amount":  "100",
+                            "expected":  "one hundred rupees"
+                        },
+                        {
+                            "amount":  "101",
+                            "expected":  "one hundred one rupees"
+                        },
+                        {
+                            "amount":  "110",
+                            "expected":  "one hundred ten rupees"
+                        },
+                        {
+                            "amount":  "999",
+                            "expected":  "nine hundred ninety nine rupees"
+                        },
+                        {
+                            "amount":  "1000",
+                            "expected":  "one thousand rupees"
+                        },
+                        {
+                            "amount":  "1001",
+                            "expected":  "one thousand one rupees"
+                        },
+                        {
+                            "amount":  "15000",
+                            "expected":  "fifteen thousand rupees"
+                        },
+                        {
+                            "amount":  "99999",
+                            "expected":  "ninety nine thousand nine hundred ninety nine rupees"
+                        },
+                        {
+                            "amount":  "100000",
+                            "expected":  "one lakh rupees"
+                        },
+                        {
+                            "amount":  "250000",
+                            "expected":  "two lakh fifty thousand rupees"
+                        },
+                        {
+                            "amount":  "1234567",
+                            "expected":  "twelve lakh thirty four thousand five hundred sixty seven rupees"
+                        },
+                        {
+                            "amount":  "10000000",
+                            "expected":  "one crore rupees"
+                        },
+                        {
+                            "amount":  "10000001",
+                            "expected":  "one crore one rupees"
+                        },
+                        {
+                            "amount":  "987654321",
+                            "expected":  "ninety eight crore seventy six lakh fifty four thousand three hundred twenty one rupees"
+                        },
+                        {
+                            "amount":  "1000000000",
+                            "expected":  "one hundred crore rupees"
+                        },
+                        {
+                            "amount":  "99999999999",
+                            "expected":  "ninety nine hundred ninety nine crore ninety nine lakh ninety nine thousand nine hundred ninety nine rupees"
+                        },
+                        {
+                            "amount":  "-5",
+                            "expected":  "minus five rupees"
+                        },
+                        {
+                            "amount":  "12.75",
+                            "expected":  "twelve rupees"
+                        },
+                        {
+                            "amount":  "0.99",
+                            "expected":  "zero rupees"
+                        },
+                        {
+                            "amount":  "-1234.5",
+                            "expected":  "minus one thousand two hundred thirty four rupees"
+                        }
+                    ]
+}
